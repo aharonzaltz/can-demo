@@ -1,5 +1,23 @@
 
 
 <div class="text-to-syllables-container">
-    <div class="row"></div>
+  <h1>Welcome to can demo</h1>
+  <div class="text-playground">
+    <h3>Type a text</h3>
+    <div class="row">
+      <textarea rows="15" cols="130" [autoResize]="true" pInputTextarea [(ngModel)]="property"></textarea>
+    </div>
+
+    <div class="button-row">
+      <button (click)="onClick()" pButton pRipple type="button" label="Let me read" class="p-button-outlined p-button-rounded"></button>
+    </div>
+
+    <div *ngIf="result" class="result-row">
+      <div class="text-result">
+        <span [ngStyle]="{'color': word.color}" *ngFor="let word of result">{{word.label}}</span>
+      </div>
+<!--      <textarea readonly rows="15" cols="130" [autoResize]="true" pInputTextarea [value]="result"></textarea>-->
+    </div>
+
+  </div>
 </div>

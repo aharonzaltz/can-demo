@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ConvertTextService} from "../services/convert-text.service";
+import {WordData} from "../interfaces/app.interfaces";
 
 @Component({
   selector: 'app-text-to-syllables',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextToSyllablesComponent implements OnInit {
 
-  constructor() { }
+  property!: string;
+  result?: WordData[];
+
+  constructor(
+    private convertTextService: ConvertTextService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  onClick() {
+    console.log(this.convertTextService.syllabify(this.property))
+    this.result = this.convertTextService.syllabify(this.property);
+  }
 }
